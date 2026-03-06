@@ -6,7 +6,7 @@ Due to file size limits, the checkpoint files are not uploaded directly to this 
 
 Please download the test checkpoints from the following Baidu Netdisk link:
 
-Link: https://pan.baidu.com/s/1H7TIytFURLJTLsvaKRgT_g  
+Link: [test](https://pan.baidu.com/s/1H7TIytFURLJTLsvaKRgT_g)  
 Extraction code: xyys
 
 After downloading, place the files into the following structure:
