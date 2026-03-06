@@ -1,16 +1,29 @@
-# T-RISE
-T-RISE is an intelligent UAV-based platform for autonomous inspection in deep underground engineering environments.
+<p align="center">
+  <h1 align="center">🚁 T-RISE</h1>
+  <p align="center">
+    <strong>An intelligent UAV-based platform for autonomous inspection in deep underground engineering environments.</strong>
+  </p>
+</p>
 
-## UAV Swarm Obstacle Avoidance Demonstrations
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-UAV%20Inspection-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Environment-Underground%20Engineering-darkgreen?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Task-Obstacle%20Avoidance-orange?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Framework-DDPG-purple?style=for-the-badge">
+</p>
 
-### Main Demonstration
+---
+
+## 👷 UAV Swarm Obstacle Avoidance Demonstrations
+
+### 🚁 Main Demonstration
 **UAV swarm obstacle avoidance in a realistic tunnel simulation environment**
 
 <p align="center">
   <img src="./THAPER-DDPG/assets/main_demo.gif" width="900">
 </p>
 
-### Scenario-Based Demonstrations
+### 🚁 Scenario-Based Demonstrations
 
 <table align="center">
   <tr>
@@ -36,3 +49,7 @@ T-RISE is an intelligent UAV-based platform for autonomous inspection in deep un
     </td>
   </tr>
 </table>
+
+<p align="center">
+  <em>Demonstrations of UAV swarm obstacle avoidance under different underground operating conditions.</em>
+</p>
