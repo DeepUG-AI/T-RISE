@@ -15,16 +15,24 @@ T-RISE is an intelligent UAV-based platform for autonomous inspection in deep un
 <table align="center">
   <tr>
     <td align="center" width="33%">
-      <strong>UAV swarm obstacle avoidance in a static obstacle environment</strong><br><br>
-      <img src="./THAPER-DDPG/assets/demo2.gif" width="100%">
+      <strong>Static Obstacles</strong>
     </td>
     <td align="center" width="33%">
-      <strong>UAV swarm obstacle avoidance in static and dynamic obstacle environments</strong><br><br>
-      <img src="./THAPER-DDPG/assets/demo3.gif" width="100%">
+      <strong>Static + Dynamic Obstacles</strong>
     </td>
     <td align="center" width="33%">
-      <strong>UAV swarm obstacle avoidance in a dust-filled environment</strong><br><br>
-      <img src="./THAPER-DDPG/assets/demo4.gif" width="100%">
+      <strong>Dust-Filled Environment</strong>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <img src="./THAPER-DDPG/assets/demo2.gif" width="95%">
+    </td>
+    <td align="center" width="33%">
+      <img src="./THAPER-DDPG/assets/demo3.gif" width="95%">
+    </td>
+    <td align="center" width="33%">
+      <img src="./THAPER-DDPG/assets/demo4.gif" width="95%">
     </td>
   </tr>
 </table>
