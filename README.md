@@ -1,8 +1,12 @@
+<p align="right">
+  <a href="./README_CN.md">🌐 中文</a> |
+  <a href="./README.md">🌐 English</a>
+</p>
+
+<h1 align="center">🚁 T-RISE</h1>
+
 <p align="center">
-  <h1 align="center">🚁 T-RISE</h1>
-  <p align="center">
-    <strong>An intelligent UAV-based platform for autonomous inspection in deep underground engineering environments.</strong>
-  </p>
+  <strong>An intelligent UAV-based platform for autonomous inspection in deep underground engineering environments.</strong>
 </p>
 
 <p align="center">
