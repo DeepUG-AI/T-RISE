@@ -57,3 +57,10 @@
 <p align="center">
   <em>展示了无人机集群在不同地下作业条件下的避障效果。</em>
 </p>
+
+### 🚁 补充演示
+**模拟含粉尘隧道场景中的无人机集群避障效果**
+
+<p align="center">
+  <img src="./THAPER-DDPG/assets/main2_demo.gif" width="900">
+</p>
