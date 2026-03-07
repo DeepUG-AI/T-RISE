@@ -57,3 +57,10 @@
 <p align="center">
   <em>Demonstrations of UAV swarm obstacle avoidance under different underground operating conditions.</em>
 </p>
+
+### 🚁 Additional Demonstration
+**UAV swarm obstacle avoidance in simulated dust-filled tunnel environment**
+
+<p align="center">
+  <img src="./THAPER-DDPG/assets/main2_demo.gif" width="900">
+</p>
