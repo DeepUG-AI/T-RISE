@@ -1,6 +1,7 @@
-<h1 align="center">
-  T-<img src="./THAPER-DDPG/assets/UAV.png" width="80" style="vertical-align: middle;">-RISE
-</h1>
+<p align="center">
+  <img src="./THAPER-DDPG/assets/UAV.png" width="80" style="vertical-align: middle;">
+  <span style="font-size: 2.2em; font-weight: bold; margin-left: 12px; vertical-align: middle;">T-RISE</span>
+</p>
 
 <p align="center">
   <a href="./README_CN.md">🌐 中文</a> |
