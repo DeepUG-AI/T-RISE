@@ -3,9 +3,11 @@
   <a href="./README.md">🌐 English</a>
 </p>
 
-<h1 align="center">
-  <img src="./THAPER-DDPG/assets/UAV.png" width="40" style="vertical-align: middle;"> T-RISE
-</h1>
+<p align="center">
+  <img src="./THAPER-DDPG/assets/UAV.png" width="80">
+</p>
+
+<h1 align="center">T-RISE</h1>
 
 <p align="center">
   <strong>An intelligent UAV-based platform for autonomous inspection in deep underground engineering environments.</strong>
@@ -22,25 +24,25 @@
 
 ## 👷 UAV Swarm Obstacle Avoidance Demonstrations
 
-### <img src="./THAPER-DDPG/assets/UAV2.png" width="24" style="vertical-align: middle;"> Main Demonstration
+### <img src="./THAPER-DDPG/assets/UAV2.png" width="48" style="vertical-align: middle;"> Main Demonstration
 **UAV swarm obstacle avoidance in a realistic tunnel simulation environment**
 
 <p align="center">
   <img src="./THAPER-DDPG/assets/main_demo.gif" width="900">
 </p>
 
-### <img src="./THAPER-DDPG/assets/UAV2.png" width="24" style="vertical-align: middle;"> Scenario-Based Demonstrations
+### <img src="./THAPER-DDPG/assets/UAV2.png" width="48" style="vertical-align: middle;"> Scenario-Based Demonstrations
 
 <table align="center">
   <tr>
     <td align="center" width="33%">
-      <strong><img src="./THAPER-DDPG/assets/img.png" width="18" style="vertical-align: middle;"> Static Obstacles</strong>
+      <strong><img src="./THAPER-DDPG/assets/img.png" width="36" style="vertical-align: middle;"> Static Obstacles</strong>
     </td>
     <td align="center" width="33%">
-      <strong><img src="./THAPER-DDPG/assets/img.png" width="18" style="vertical-align: middle;"> Static + Dynamic Obstacles</strong>
+      <strong><img src="./THAPER-DDPG/assets/img.png" width="36" style="vertical-align: middle;"> Static + Dynamic Obstacles</strong>
     </td>
     <td align="center" width="33%">
-      <strong><img src="./THAPER-DDPG/assets/img.png" width="18" style="vertical-align: middle;"> Dust-Filled Environment</strong>
+      <strong><img src="./THAPER-DDPG/assets/img.png" width="36" style="vertical-align: middle;"> Dust-Filled Environment</strong>
     </td>
   </tr>
   <tr>
@@ -57,11 +59,11 @@
 </table>
 
 <p align="center">
-  <img src="./THAPER-DDPG/assets/UAV3.png" width="20" style="vertical-align: middle;">
+  <img src="./THAPER-DDPG/assets/UAV3.png" width="40" style="vertical-align: middle;">
   <em>Demonstrations of UAV swarm obstacle avoidance under different underground operating conditions.</em>
 </p>
 
-### <img src="./THAPER-DDPG/assets/UAV2.png" width="24" style="vertical-align: middle;"> Additional Demonstration
+### <img src="./THAPER-DDPG/assets/UAV2.png" width="48" style="vertical-align: middle;"> Additional Demonstration
 **UAV swarm obstacle avoidance in simulated dust-filled tunnel environment**
 
 <p align="center">
