@@ -1,12 +1,18 @@
-<p align="right">
+<table align="center">
+  <tr>
+    <td valign="middle" align="center">
+      <img src="./THAPER-DDPG/assets/UAV.png" width="80">
+    </td>
+    <td valign="middle" align="left" style="padding-left: 14px;">
+      <h1 style="margin: 0;">T-RISE</h1>
+    </td>
+  </tr>
+</table>
+
+<p align="center">
   <a href="./README_CN.md">🌐 中文</a> |
   <a href="./README.md">🌐 English</a>
 </p>
-
-<h1 align="center">
-  <img src="./THAPER-DDPG/assets/UAV.png" width="80"><br>
-  T-RISE
-</h1>
 
 <p align="center">
   <strong>一个面向深部地下工程环境自主巡检的智能无人机平台。</strong>
