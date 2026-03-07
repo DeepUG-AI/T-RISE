@@ -1,7 +1,13 @@
-<p align="center">
-  <img src="./THAPER-DDPG/assets/UAV.png" width="80" style="vertical-align: middle;">
-  <span style="font-size: 2.2em; font-weight: bold; margin-left: 12px; vertical-align: middle;">T-RISE</span>
-</p>
+<table align="center">
+  <tr>
+    <td valign="middle" align="center">
+      <img src="./THAPER-DDPG/assets/UAV.png" width="80">
+    </td>
+    <td valign="middle" align="left" style="padding-left: 14px;">
+      <span style="font-size: 2.8em; font-weight: 700; line-height: 1;">T-RISE</span>
+    </td>
+  </tr>
+</table>
 
 <p align="center">
   <a href="./README_CN.md">🌐 中文</a> |
