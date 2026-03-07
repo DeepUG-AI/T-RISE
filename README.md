@@ -4,7 +4,7 @@
       <img src="./THAPER-DDPG/assets/UAV.png" width="80">
     </td>
     <td valign="middle" align="left" style="padding-left: 14px;">
-      <span style="font-size: 2.8em; font-weight: 700; line-height: 1;">T-RISE</span>
+      <h1 style="margin: 0;">T-RISE</h1>
     </td>
   </tr>
 </table>
