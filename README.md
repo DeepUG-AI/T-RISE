@@ -1,9 +1,9 @@
 <div align="center">
-  <img src="./THAPER-DDPG/assets/UAV.png" width="80" style="display:block; margin:0 auto 6px auto;">
-  <p style="font-size: 48px; font-weight: 700; margin: 0;">T-RISE</p>
+  <img src="./THAPER-DDPG/assets/UAV.png" width="80"><br>
+  <h1>T-RISE</h1>
 </div>
 
-<p align="center" style="margin-top: 6px;">
+<p align="center">
   <a href="./README_CN.md">🌐 中文</a> |
   <a href="./README.md">🌐 English</a>
 </p>
