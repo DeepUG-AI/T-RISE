@@ -1,12 +1,15 @@
-<p align="right">
-  <a href="./README_CN.md">🌐 中文</a> |
-  <a href="./README.md">🌐 English</a>
-</p>
-
-<h1 align="center">
-  <img src="./THAPER-DDPG/assets/UAV.png" width="80"><br>
-  T-RISE
-</h1>
+<table width="100%">
+  <tr>
+    <td align="center" width="80%">
+      <img src="./THAPER-DDPG/assets/UAV.png" width="80"><br>
+      <h1>T-RISE</h1>
+    </td>
+    <td align="right" valign="top" width="20%">
+      <a href="./README_CN.md">🌐 中文</a> |
+      <a href="./README.md">🌐 English</a>
+    </td>
+  </tr>
+</table>
 
 <p align="center">
   <strong>An intelligent UAV-based platform for autonomous inspection in deep underground engineering environments.</strong>
