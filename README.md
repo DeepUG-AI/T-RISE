@@ -3,11 +3,10 @@
   <a href="./README.md">🌐 English</a>
 </p>
 
-<p align="center">
-  <img src="./THAPER-DDPG/assets/UAV.png" width="80">
-</p>
-
-<h1 align="center">T-RISE</h1>
+<h1 align="center">
+  <img src="./THAPER-DDPG/assets/UAV.png" width="80"><br>
+  T-RISE
+</h1>
 
 <p align="center">
   <strong>An intelligent UAV-based platform for autonomous inspection in deep underground engineering environments.</strong>
@@ -36,13 +35,13 @@
 <table align="center">
   <tr>
     <td align="center" width="33%">
-      <strong><img src="./THAPER-DDPG/assets/img.png" width="36" style="vertical-align: middle;"> Static Obstacles</strong>
+      <strong><img src="./THAPER-DDPG/assets/img.png" width="18" style="vertical-align: middle;"> Static Obstacles</strong>
     </td>
     <td align="center" width="33%">
-      <strong><img src="./THAPER-DDPG/assets/img.png" width="36" style="vertical-align: middle;"> Static + Dynamic Obstacles</strong>
+      <strong><img src="./THAPER-DDPG/assets/img.png" width="18" style="vertical-align: middle;"> Static + Dynamic Obstacles</strong>
     </td>
     <td align="center" width="33%">
-      <strong><img src="./THAPER-DDPG/assets/img.png" width="36" style="vertical-align: middle;"> Dust-Filled Environment</strong>
+      <strong><img src="./THAPER-DDPG/assets/img.png" width="18" style="vertical-align: middle;"> Dust-Filled Environment</strong>
     </td>
   </tr>
   <tr>
