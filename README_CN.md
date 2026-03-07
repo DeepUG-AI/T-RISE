@@ -3,7 +3,10 @@
   <a href="./README.md">🌐 English</a>
 </p>
 
-<h1 align="center">🚁 T-RISE</h1>
+<h1 align="center">
+  <img src="./THAPER-DDPG/assets/UAV.png" width="80"><br>
+  T-RISE
+</h1>
 
 <p align="center">
   <strong>一个面向深部地下工程环境自主巡检的智能无人机平台。</strong>
@@ -20,25 +23,25 @@
 
 ## 👷 无人机集群避障演示
 
-### 🚁 主要演示
+### <img src="./THAPER-DDPG/assets/UAV2.png" width="48" style="vertical-align: middle;"> 主要演示
 **真实隧道仿真环境中的无人机集群避障效果**
 
 <p align="center">
   <img src="./THAPER-DDPG/assets/main_demo.gif" width="900">
 </p>
 
-### 🚁 场景化演示
+### <img src="./THAPER-DDPG/assets/UAV2.png" width="48" style="vertical-align: middle;"> 场景化演示
 
 <table align="center">
   <tr>
     <td align="center" width="33%">
-      <strong>静态障碍物场景</strong>
+      <strong><img src="./THAPER-DDPG/assets/img.png" width="18" style="vertical-align: middle;"> 静态障碍物场景</strong>
     </td>
     <td align="center" width="33%">
-      <strong>静态 + 动态障碍物场景</strong>
+      <strong><img src="./THAPER-DDPG/assets/img.png" width="18" style="vertical-align: middle;"> 静态 + 动态障碍物场景</strong>
     </td>
     <td align="center" width="33%">
-      <strong>含粉尘环境场景</strong>
+      <strong><img src="./THAPER-DDPG/assets/img.png" width="18" style="vertical-align: middle;"> 含粉尘环境场景</strong>
     </td>
   </tr>
   <tr>
@@ -55,10 +58,11 @@
 </table>
 
 <p align="center">
+  <img src="./THAPER-DDPG/assets/UAV3.png" width="40" style="vertical-align: middle;">
   <em>展示了无人机集群在不同地下作业条件下的避障效果。</em>
 </p>
 
-### 🚁 补充演示
+### <img src="./THAPER-DDPG/assets/UAV2.png" width="48" style="vertical-align: middle;"> 补充演示
 **模拟含粉尘隧道场景中的无人机集群避障效果**
 
 <p align="center">
