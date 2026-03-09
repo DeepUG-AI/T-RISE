@@ -74,3 +74,9 @@
 <p align="center">
   <img src="./THAPER-DDPG/assets/main2_demo.gif" width="900">
 </p>
+
+**隧道中的UAV编队内部避障。**
+
+<p align="center">
+  <img src="./THAPER-DDPG/assets/main3_demo.gif" width="900">
+</p>
