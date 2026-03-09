@@ -65,7 +65,7 @@
 
 <p align="center">
   <img src="./THAPER-DDPG/assets/UAV3.png" width="40" style="vertical-align: middle;">
-  <em>展示了UAV集群在不同地下作业条件下的避障效果。</em>
+  <em>展示了UAV集群在不同地下作业条件下的避障效果</em>
   <img src="./THAPER-DDPG/assets/img2.png" width="22" style="vertical-align: middle; margin-left: 6px;">
 </p>
 
