@@ -82,12 +82,10 @@
   <img src="./THAPER-DDPG/assets/main3_demo.gif" width="900">
 </p>
 
-### <img src="./THAPER-DDPG/assets/UAV2.png" width="48" style="vertical-align: middle;"> UAV自主巡检技术在地下工程中的典型应用场景
+### <img src="./THAPER-DDPG/assets/UAV2.png" width="48" style="vertical-align: middle;"> Typical Application Scenarios
+
+**Typical application scenarios of autonomous UAV inspection technology in underground engineering**
 
 <p align="center">
   <img src="./THAPER-DDPG/assets/img3.png" width="900">
-</p>
-
-<p align="center">
-  <em>Typical application scenarios of autonomous UAV inspection technology in underground engineering.</em>
 </p>
