@@ -27,10 +27,10 @@
 
 ---
 
-## 👷 无人机集群避障演示
+## 👷 UAV集群避障演示
 
 ### <img src="./THAPER-DDPG/assets/UAV2.png" width="48" style="vertical-align: middle;"> 主要演示
-**真实隧道仿真环境中的无人机集群避障效果**
+**真实隧道仿真环境中的UAV集群避障效果**
 
 <p align="center">
   <img src="./THAPER-DDPG/assets/main_demo.gif" width="900">
@@ -69,7 +69,7 @@
 </p>
 
 ### <img src="./THAPER-DDPG/assets/UAV2.png" width="48" style="vertical-align: middle;"> 补充演示
-**模拟含粉尘隧道场景中的无人机集群避障效果**
+**模拟粉尘隧道场景中的UAV集群避障效果**
 
 <p align="center">
   <img src="./THAPER-DDPG/assets/main2_demo.gif" width="900">
