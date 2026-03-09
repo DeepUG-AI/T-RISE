@@ -69,7 +69,7 @@
 </p>
 
 ### <img src="./THAPER-DDPG/assets/UAV2.png" width="48" style="vertical-align: middle;"> Additional Demonstration
-**UAV swarm obstacle avoidance in simulated dust-filled tunnel environment**
+**UAV swarm internal collision avoidance in tunnel environment**
 
 <p align="center">
   <img src="./THAPER-DDPG/assets/main2_demo.gif" width="900">
