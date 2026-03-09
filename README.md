@@ -66,7 +66,7 @@
 <p align="center">
   <img src="./THAPER-DDPG/assets/UAV3.png" width="40" style="vertical-align: middle;">
   <em>Demonstrations of UAV swarm obstacle avoidance under different underground operating conditions.</em>
-  <img src="./THAPER-DDPG/assets/img2.png" width="18" style="vertical-align: middle;">
+  <img src="./THAPER-DDPG/assets/img2.png" width="22" style="vertical-align: middle; margin-left: 6px;">
 </p>
 
 ### <img src="./THAPER-DDPG/assets/UAV2.png" width="48" style="vertical-align: middle;"> Additional Demonstration
