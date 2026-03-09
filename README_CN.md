@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <strong>一个面向深部地下工程环境自主巡检的智能UAV平台。</strong>
+  <strong>一个面向深部地下工程环境自主巡检的智能UAV平台</strong>
 </p>
 
 <p align="center">
