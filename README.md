@@ -75,7 +75,6 @@
   <img src="./THAPER-DDPG/assets/main2_demo.gif" width="900">
 </p>
 
-### <img src="./THAPER-DDPG/assets/UAV2.png" width="48" style="vertical-align: middle;"> Additional Demonstration
 **UAV formation internal obstacle avoidance in tunnel environment**
 
 <p align="center">
