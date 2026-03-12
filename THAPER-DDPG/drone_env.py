@@ -230,7 +230,7 @@ class drone_env_collisionabvoidance:
 					if state_[0] <= 2.4 and state_[0] > 0.65:
 						info = "too close"
 						reward = -50
-					if state_[0] <= 5 and state_[0] > 4:
+					if state_[0] <= 4.5 and state_[0] > 4:
 						info = "too far"
 						reward = -50
 					if state_[0] > 2.4 and state_[0] <= 4:
