@@ -1,0 +1,741 @@
+2026-03-19 12:34:55 - #----------Config info----------#
+2026-03-19 12:34:55 - project_name: crack_seg,
+2026-03-19 12:34:55 - dataset_name: newdata2,
+2026-03-19 12:34:55 - model_name: UltraFastCrackSeg_reversion,
+2026-03-19 12:34:55 - model_version: v4,
+2026-03-19 12:34:55 - exp_tag: WBceTverskyLoss,
+2026-03-19 12:34:55 - use_timestamp: True,
+2026-03-19 12:34:55 - work_dir_root: /autodl-fs/data/UltraFastCrackSeg-main/results,
+2026-03-19 12:34:55 - model_config: {'num_classes': 1, 'input_channels': 3, 'c_list': [24, 40, 64, 80, 96], 'pretrained_path': '', 'drop_path_rate': 0.03, 'use_sigmoid': True},
+2026-03-19 12:34:55 - test_weights: ,
+2026-03-19 12:34:55 - data_path: /autodl-fs/data/newdata2,
+2026-03-19 12:34:55 - criterion: WBceTverskyLoss(
+  (wbce): WeightedBCELoss()
+  (tversky): TverskyLoss()
+),
+2026-03-19 12:34:55 - num_classes: 1,
+2026-03-19 12:34:55 - input_size_h: 512,
+2026-03-19 12:34:55 - input_size_w: 512,
+2026-03-19 12:34:55 - input_channels: 3,
+2026-03-19 12:34:55 - distributed: False,
+2026-03-19 12:34:55 - local_rank: -1,
+2026-03-19 12:34:55 - world_size: None,
+2026-03-19 12:34:55 - rank: None,
+2026-03-19 12:34:55 - num_workers: 8,
+2026-03-19 12:34:55 - seed: 42,
+2026-03-19 12:34:55 - amp: False,
+2026-03-19 12:34:55 - batch_size: 8,
+2026-03-19 12:34:55 - epochs: 200,
+2026-03-19 12:34:55 - early_stop_patience: 50,
+2026-03-19 12:34:55 - threshold: 0.5,
+2026-03-19 12:34:55 - print_interval: 200,
+2026-03-19 12:34:55 - val_interval: 10,
+2026-03-19 12:34:55 - save_interval: 100,
+2026-03-19 12:34:55 - opt: AdamW,
+2026-03-19 12:34:55 - lr: 0.001,
+2026-03-19 12:34:55 - betas: (0.9, 0.999),
+2026-03-19 12:34:55 - eps: 1e-08,
+2026-03-19 12:34:55 - weight_decay: 0.01,
+2026-03-19 12:34:55 - amsgrad: False,
+2026-03-19 12:34:55 - sch: CosineAnnealingLR,
+2026-03-19 12:34:55 - T_max: 50,
+2026-03-19 12:34:55 - eta_min: 1e-05,
+2026-03-19 12:34:55 - last_epoch: -1,
+2026-03-19 12:34:55 - resume_from: ,
+2026-03-19 12:34:55 - auto_resume: True,
+2026-03-19 12:34:55 - timestamp: 2026_03_19_12_34_55,
+2026-03-19 12:34:55 - exp_name_parts: ['newdata2', 'UltraFastCrackSeg_reversion', 'v4', 'WBceTverskyLoss', '2026_03_19_12_34_55'],
+2026-03-19 12:34:55 - exp_name: newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55,
+2026-03-19 12:34:55 - work_dir: /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55,
+2026-03-19 12:34:56 - flops: 2.91542512, params: 0.1313, Total params: : 0.1375
+2026-03-19 12:34:56 - DataParallel(
+  (module): UltraFastCrackSegV3(
+    (enc1): DSConvBlock(
+      (conv1): DSConv(
+        (dw): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=3, bias=False)
+        (dw_norm): GroupNorm(1, 3, eps=1e-05, affine=True)
+        (dw_act): GELU(approximate='none')
+        (pw): Conv2d(3, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (pw_norm): GroupNorm(8, 24, eps=1e-05, affine=True)
+        (pw_act): GELU(approximate='none')
+      )
+      (conv2): DSConv(
+        (dw): Conv2d(24, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=24, bias=False)
+        (dw_norm): GroupNorm(8, 24, eps=1e-05, affine=True)
+        (dw_act): GELU(approximate='none')
+        (pw): Conv2d(24, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (pw_norm): GroupNorm(8, 24, eps=1e-05, affine=True)
+        (pw_act): Identity()
+      )
+      (act): GELU(approximate='none')
+      (drop_path): Identity()
+      (shortcut): Sequential(
+        (0): Conv2d(3, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): GroupNorm(8, 24, eps=1e-05, affine=True)
+      )
+    )
+    (enc2): DSConvBlock(
+      (conv1): DSConv(
+        (dw): Conv2d(24, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=24, bias=False)
+        (dw_norm): GroupNorm(8, 24, eps=1e-05, affine=True)
+        (dw_act): GELU(approximate='none')
+        (pw): Conv2d(24, 40, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (pw_norm): GroupNorm(8, 40, eps=1e-05, affine=True)
+        (pw_act): GELU(approximate='none')
+      )
+      (conv2): DSConv(
+        (dw): Conv2d(40, 40, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=40, bias=False)
+        (dw_norm): GroupNorm(8, 40, eps=1e-05, affine=True)
+        (dw_act): GELU(approximate='none')
+        (pw): Conv2d(40, 40, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (pw_norm): GroupNorm(8, 40, eps=1e-05, affine=True)
+        (pw_act): Identity()
+      )
+      (act): GELU(approximate='none')
+      (drop_path): DropPath()
+      (shortcut): Sequential(
+        (0): Conv2d(24, 40, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): GroupNorm(8, 40, eps=1e-05, affine=True)
+      )
+    )
+    (enc3): DSConvBlock(
+      (conv1): DSConv(
+        (dw): Conv2d(40, 40, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=40, bias=False)
+        (dw_norm): GroupNorm(8, 40, eps=1e-05, affine=True)
+        (dw_act): GELU(approximate='none')
+        (pw): Conv2d(40, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (pw_norm): GroupNorm(8, 64, eps=1e-05, affine=True)
+        (pw_act): GELU(approximate='none')
+      )
+      (conv2): DSConv(
+        (dw): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+        (dw_norm): GroupNorm(8, 64, eps=1e-05, affine=True)
+        (dw_act): GELU(approximate='none')
+        (pw): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (pw_norm): GroupNorm(8, 64, eps=1e-05, affine=True)
+        (pw_act): Identity()
+      )
+      (act): GELU(approximate='none')
+      (drop_path): DropPath()
+      (shortcut): Sequential(
+        (0): Conv2d(40, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): GroupNorm(8, 64, eps=1e-05, affine=True)
+      )
+    )
+    (enc4): DSConvBlock(
+      (conv1): DSConv(
+        (dw): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+        (dw_norm): GroupNorm(8, 64, eps=1e-05, affine=True)
+        (dw_act): GELU(approximate='none')
+        (pw): Conv2d(64, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (pw_norm): GroupNorm(8, 80, eps=1e-05, affine=True)
+        (pw_act): GELU(approximate='none')
+      )
+      (conv2): DSConv(
+        (dw): Conv2d(80, 80, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=80, bias=False)
+        (dw_norm): GroupNorm(8, 80, eps=1e-05, affine=True)
+        (dw_act): GELU(approximate='none')
+        (pw): Conv2d(80, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (pw_norm): GroupNorm(8, 80, eps=1e-05, affine=True)
+        (pw_act): Identity()
+      )
+      (act): GELU(approximate='none')
+      (drop_path): DropPath()
+      (shortcut): Sequential(
+        (0): Conv2d(64, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): GroupNorm(8, 80, eps=1e-05, affine=True)
+      )
+    )
+    (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (bottleneck_in): DSConvBlock(
+      (conv1): DSConv(
+        (dw): Conv2d(80, 80, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=80, bias=False)
+        (dw_norm): GroupNorm(8, 80, eps=1e-05, affine=True)
+        (dw_act): GELU(approximate='none')
+        (pw): Conv2d(80, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (pw_norm): GroupNorm(8, 96, eps=1e-05, affine=True)
+        (pw_act): GELU(approximate='none')
+      )
+      (conv2): DSConv(
+        (dw): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=96, bias=False)
+        (dw_norm): GroupNorm(8, 96, eps=1e-05, affine=True)
+        (dw_act): GELU(approximate='none')
+        (pw): Conv2d(96, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (pw_norm): GroupNorm(8, 96, eps=1e-05, affine=True)
+        (pw_act): Identity()
+      )
+      (act): GELU(approximate='none')
+      (drop_path): DropPath()
+      (shortcut): Sequential(
+        (0): Conv2d(80, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): GroupNorm(8, 96, eps=1e-05, affine=True)
+      )
+    )
+    (context): LiteContextBlock(
+      (branch1): Sequential(
+        (0): Conv2d(96, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): GroupNorm(8, 24, eps=1e-05, affine=True)
+        (2): GELU(approximate='none')
+      )
+      (branch2): Sequential(
+        (0): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4), groups=96, bias=False)
+        (1): GroupNorm(8, 96, eps=1e-05, affine=True)
+        (2): GELU(approximate='none')
+        (3): Conv2d(96, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (4): GroupNorm(8, 24, eps=1e-05, affine=True)
+        (5): GELU(approximate='none')
+      )
+      (pool): Sequential(
+        (0): AdaptiveAvgPool2d(output_size=1)
+        (1): Conv2d(96, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (2): GroupNorm(8, 24, eps=1e-05, affine=True)
+        (3): GELU(approximate='none')
+      )
+      (project): Sequential(
+        (0): Conv2d(72, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): GroupNorm(8, 96, eps=1e-05, affine=True)
+        (2): GELU(approximate='none')
+      )
+    )
+    (strip_pool): StripPoolingLite(
+      (reduce): Sequential(
+        (0): Conv2d(96, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): GroupNorm(8, 24, eps=1e-05, affine=True)
+        (2): GELU(approximate='none')
+      )
+      (conv_h): Sequential(
+        (0): Conv2d(24, 24, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), groups=24, bias=False)
+        (1): GroupNorm(8, 24, eps=1e-05, affine=True)
+        (2): GELU(approximate='none')
+      )
+      (conv_w): Sequential(
+        (0): Conv2d(24, 24, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), groups=24, bias=False)
+        (1): GroupNorm(8, 24, eps=1e-05, affine=True)
+        (2): GELU(approximate='none')
+      )
+      (fuse): Sequential(
+        (0): Conv2d(24, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): GroupNorm(8, 96, eps=1e-05, affine=True)
+      )
+      (act): GELU(approximate='none')
+    )
+    (bottleneck_refine): DSConvBlock(
+      (conv1): DSConv(
+        (dw): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=96, bias=False)
+        (dw_norm): GroupNorm(8, 96, eps=1e-05, affine=True)
+        (dw_act): GELU(approximate='none')
+        (pw): Conv2d(96, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (pw_norm): GroupNorm(8, 96, eps=1e-05, affine=True)
+        (pw_act): GELU(approximate='none')
+      )
+      (conv2): DSConv(
+        (dw): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=96, bias=False)
+        (dw_norm): GroupNorm(8, 96, eps=1e-05, affine=True)
+        (dw_act): GELU(approximate='none')
+        (pw): Conv2d(96, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (pw_norm): GroupNorm(8, 96, eps=1e-05, affine=True)
+        (pw_act): Identity()
+      )
+      (act): GELU(approximate='none')
+      (drop_path): DropPath()
+      (shortcut): Identity()
+    )
+    (dec3): LiteDecoderBlock(
+      (x_proj): Sequential(
+        (0): Conv2d(96, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): GroupNorm(8, 64, eps=1e-05, affine=True)
+      )
+      (skip_proj): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): GroupNorm(8, 64, eps=1e-05, affine=True)
+      )
+      (act): GELU(approximate='none')
+      (block): DSConvBlock(
+        (conv1): DSConv(
+          (dw): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+          (dw_norm): GroupNorm(8, 64, eps=1e-05, affine=True)
+          (dw_act): GELU(approximate='none')
+          (pw): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (pw_norm): GroupNorm(8, 64, eps=1e-05, affine=True)
+          (pw_act): GELU(approximate='none')
+        )
+        (conv2): DSConv(
+          (dw): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+          (dw_norm): GroupNorm(8, 64, eps=1e-05, affine=True)
+          (dw_act): GELU(approximate='none')
+          (pw): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (pw_norm): GroupNorm(8, 64, eps=1e-05, affine=True)
+          (pw_act): Identity()
+        )
+        (act): GELU(approximate='none')
+        (drop_path): DropPath()
+        (shortcut): Identity()
+      )
+    )
+    (dec2): LiteDecoderBlock(
+      (x_proj): Sequential(
+        (0): Conv2d(64, 40, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): GroupNorm(8, 40, eps=1e-05, affine=True)
+      )
+      (skip_proj): Sequential(
+        (0): Conv2d(40, 40, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): GroupNorm(8, 40, eps=1e-05, affine=True)
+      )
+      (act): GELU(approximate='none')
+      (block): DSConvBlock(
+        (conv1): DSConv(
+          (dw): Conv2d(40, 40, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=40, bias=False)
+          (dw_norm): GroupNorm(8, 40, eps=1e-05, affine=True)
+          (dw_act): GELU(approximate='none')
+          (pw): Conv2d(40, 40, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (pw_norm): GroupNorm(8, 40, eps=1e-05, affine=True)
+          (pw_act): GELU(approximate='none')
+        )
+        (conv2): DSConv(
+          (dw): Conv2d(40, 40, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=40, bias=False)
+          (dw_norm): GroupNorm(8, 40, eps=1e-05, affine=True)
+          (dw_act): GELU(approximate='none')
+          (pw): Conv2d(40, 40, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (pw_norm): GroupNorm(8, 40, eps=1e-05, affine=True)
+          (pw_act): Identity()
+        )
+        (act): GELU(approximate='none')
+        (drop_path): DropPath()
+        (shortcut): Identity()
+      )
+    )
+    (dec1): LiteDecoderBlock(
+      (x_proj): Sequential(
+        (0): Conv2d(40, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): GroupNorm(8, 24, eps=1e-05, affine=True)
+      )
+      (skip_proj): Sequential(
+        (0): Conv2d(24, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): GroupNorm(8, 24, eps=1e-05, affine=True)
+      )
+      (act): GELU(approximate='none')
+      (block): DSConvBlock(
+        (conv1): DSConv(
+          (dw): Conv2d(24, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=24, bias=False)
+          (dw_norm): GroupNorm(8, 24, eps=1e-05, affine=True)
+          (dw_act): GELU(approximate='none')
+          (pw): Conv2d(24, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (pw_norm): GroupNorm(8, 24, eps=1e-05, affine=True)
+          (pw_act): GELU(approximate='none')
+        )
+        (conv2): DSConv(
+          (dw): Conv2d(24, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=24, bias=False)
+          (dw_norm): GroupNorm(8, 24, eps=1e-05, affine=True)
+          (dw_act): GELU(approximate='none')
+          (pw): Conv2d(24, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (pw_norm): GroupNorm(8, 24, eps=1e-05, affine=True)
+          (pw_act): Identity()
+        )
+        (act): GELU(approximate='none')
+        (drop_path): DropPath()
+        (shortcut): Identity()
+      )
+    )
+    (head): Sequential(
+      (0): DSConvBlock(
+        (conv1): DSConv(
+          (dw): Conv2d(24, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=24, bias=False)
+          (dw_norm): GroupNorm(8, 24, eps=1e-05, affine=True)
+          (dw_act): GELU(approximate='none')
+          (pw): Conv2d(24, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (pw_norm): GroupNorm(8, 24, eps=1e-05, affine=True)
+          (pw_act): GELU(approximate='none')
+        )
+        (conv2): DSConv(
+          (dw): Conv2d(24, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=24, bias=False)
+          (dw_norm): GroupNorm(8, 24, eps=1e-05, affine=True)
+          (dw_act): GELU(approximate='none')
+          (pw): Conv2d(24, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (pw_norm): GroupNorm(8, 24, eps=1e-05, affine=True)
+          (pw_act): Identity()
+        )
+        (act): GELU(approximate='none')
+        (drop_path): DropPath()
+        (shortcut): Identity()
+      )
+      (1): Conv2d(24, 1, kernel_size=(1, 1), stride=(1, 1))
+    )
+  )
+)
+2026-03-19 12:34:57 - train: epoch 1, iter:0, loss: 1.7375, lr: 0.001
+2026-03-19 12:35:18 - train: epoch 1, iter:200, loss: 0.6562, lr: 0.001
+2026-03-19 12:35:39 - train: epoch 1, iter:400, loss: 0.5806, lr: 0.001
+2026-03-19 12:36:01 - train: epoch 1, iter:600, loss: 0.5389, lr: 0.001
+2026-03-19 12:36:11 - train: epoch 1, mean_loss: 0.5266, lr: 0.0009990232305719944
+2026-03-19 12:36:23 - val epoch: 1, loss: 0.4228, dice: 0.742827
+2026-03-19 12:36:23 - [Best Loss Updated] epoch=1, val_loss=0.4228, val_dice=0.7428, saved to /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_loss_epoch1_loss0.4228.pth
+2026-03-19 12:36:23 - [Best Dice Updated] epoch=1, val_dice=0.7428, val_loss=0.4228, saved to /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_dice_epoch1_dice0.7428.pth
+2026-03-19 12:36:23 - [Early Stopping] val_dice improved, counter reset to 0/30
+2026-03-19 12:36:24 - train: epoch 2, iter:0, loss: 0.3652, lr: 0.0009990232305719944
+2026-03-19 12:36:45 - train: epoch 2, iter:200, loss: 0.4302, lr: 0.0009990232305719944
+2026-03-19 12:37:07 - train: epoch 2, iter:400, loss: 0.4277, lr: 0.0009990232305719944
+2026-03-19 12:37:28 - train: epoch 2, iter:600, loss: 0.4278, lr: 0.0009990232305719944
+2026-03-19 12:37:38 - train: epoch 2, mean_loss: 0.4279, lr: 0.0009960967771506664
+2026-03-19 12:37:51 - val epoch: 2, loss: 0.3921, dice: 0.746571
+2026-03-19 12:37:51 - [Remove Old Best] deleted: /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_loss_epoch1_loss0.4228.pth
+2026-03-19 12:37:51 - [Best Loss Updated] epoch=2, val_loss=0.3921, val_dice=0.7466, saved to /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_loss_epoch2_loss0.3921.pth
+2026-03-19 12:37:51 - [Remove Old Best] deleted: /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_dice_epoch1_dice0.7428.pth
+2026-03-19 12:37:51 - [Best Dice Updated] epoch=2, val_dice=0.7466, val_loss=0.3921, saved to /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_dice_epoch2_dice0.7466.pth
+2026-03-19 12:37:51 - [Early Stopping] val_dice improved, counter reset to 0/30
+2026-03-19 12:37:52 - train: epoch 3, iter:0, loss: 0.3516, lr: 0.0009960967771506664
+2026-03-19 12:38:13 - train: epoch 3, iter:200, loss: 0.4115, lr: 0.0009960967771506664
+2026-03-19 12:38:34 - train: epoch 3, iter:400, loss: 0.4119, lr: 0.0009960967771506664
+2026-03-19 12:38:56 - train: epoch 3, iter:600, loss: 0.4120, lr: 0.0009960967771506664
+2026-03-19 12:39:06 - train: epoch 3, mean_loss: 0.4115, lr: 0.0009912321891107007
+2026-03-19 12:39:19 - val epoch: 3, loss: 0.3794, dice: 0.760796
+2026-03-19 12:39:19 - [Remove Old Best] deleted: /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_loss_epoch2_loss0.3921.pth
+2026-03-19 12:39:19 - [Best Loss Updated] epoch=3, val_loss=0.3794, val_dice=0.7608, saved to /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_loss_epoch3_loss0.3794.pth
+2026-03-19 12:39:19 - [Remove Old Best] deleted: /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_dice_epoch2_dice0.7466.pth
+2026-03-19 12:39:19 - [Best Dice Updated] epoch=3, val_dice=0.7608, val_loss=0.3794, saved to /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_dice_epoch3_dice0.7608.pth
+2026-03-19 12:39:19 - [Early Stopping] val_dice improved, counter reset to 0/30
+2026-03-19 12:39:20 - train: epoch 4, iter:0, loss: 0.3684, lr: 0.0009912321891107007
+2026-03-19 12:39:42 - train: epoch 4, iter:200, loss: 0.4186, lr: 0.0009912321891107007
+2026-03-19 12:40:03 - train: epoch 4, iter:400, loss: 0.4029, lr: 0.0009912321891107007
+2026-03-19 12:40:24 - train: epoch 4, iter:600, loss: 0.3979, lr: 0.0009912321891107007
+2026-03-19 12:40:35 - train: epoch 4, mean_loss: 0.3984, lr: 0.0009844486647586721
+2026-03-19 12:40:47 - val epoch: 4, loss: 0.3790, dice: 0.759459
+2026-03-19 12:40:48 - [Remove Old Best] deleted: /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_loss_epoch3_loss0.3794.pth
+2026-03-19 12:40:48 - [Best Loss Updated] epoch=4, val_loss=0.3790, val_dice=0.7595, saved to /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_loss_epoch4_loss0.3790.pth
+2026-03-19 12:40:48 - [Early Stopping] no improvement in val_dice for 1/30 epochs (current: 0.7595, best: 0.7608)
+2026-03-19 12:40:48 - train: epoch 5, iter:0, loss: 0.3672, lr: 0.0009844486647586721
+2026-03-19 12:41:10 - train: epoch 5, iter:200, loss: 0.3830, lr: 0.0009844486647586721
+2026-03-19 12:41:31 - train: epoch 5, iter:400, loss: 0.3839, lr: 0.0009844486647586721
+2026-03-19 12:41:52 - train: epoch 5, iter:600, loss: 0.3861, lr: 0.0009844486647586721
+2026-03-19 12:42:03 - train: epoch 5, mean_loss: 0.3890, lr: 0.0009757729755661009
+2026-03-19 12:42:16 - val epoch: 5, loss: 0.3883, dice: 0.728932
+2026-03-19 12:42:16 - [Early Stopping] no improvement in val_dice for 2/30 epochs (current: 0.7289, best: 0.7608)
+2026-03-19 12:42:18 - train: epoch 6, iter:0, loss: 0.4768, lr: 0.0009757729755661009
+2026-03-19 12:42:39 - train: epoch 6, iter:200, loss: 0.3697, lr: 0.0009757729755661009
+2026-03-19 12:43:00 - train: epoch 6, iter:400, loss: 0.3770, lr: 0.0009757729755661009
+2026-03-19 12:43:21 - train: epoch 6, iter:600, loss: 0.3763, lr: 0.0009757729755661009
+2026-03-19 12:43:32 - train: epoch 6, mean_loss: 0.3782, lr: 0.0009652393605146842
+2026-03-19 12:43:45 - val epoch: 6, loss: 0.3743, dice: 0.742094
+2026-03-19 12:43:46 - [Remove Old Best] deleted: /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_loss_epoch4_loss0.3790.pth
+2026-03-19 12:43:46 - [Best Loss Updated] epoch=6, val_loss=0.3743, val_dice=0.7421, saved to /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_loss_epoch6_loss0.3743.pth
+2026-03-19 12:43:46 - [Early Stopping] no improvement in val_dice for 3/30 epochs (current: 0.7421, best: 0.7608)
+2026-03-19 12:43:46 - train: epoch 7, iter:0, loss: 0.2892, lr: 0.0009652393605146842
+2026-03-19 12:44:08 - train: epoch 7, iter:200, loss: 0.3722, lr: 0.0009652393605146842
+2026-03-19 12:44:29 - train: epoch 7, iter:400, loss: 0.3736, lr: 0.0009652393605146842
+2026-03-19 12:44:50 - train: epoch 7, iter:600, loss: 0.3711, lr: 0.0009652393605146842
+2026-03-19 12:45:01 - train: epoch 7, mean_loss: 0.3720, lr: 0.0009528893909706795
+2026-03-19 12:45:13 - val epoch: 7, loss: 0.3701, dice: 0.762570
+2026-03-19 12:45:14 - [Remove Old Best] deleted: /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_loss_epoch6_loss0.3743.pth
+2026-03-19 12:45:14 - [Best Loss Updated] epoch=7, val_loss=0.3701, val_dice=0.7626, saved to /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_loss_epoch7_loss0.3701.pth
+2026-03-19 12:45:14 - [Remove Old Best] deleted: /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_dice_epoch3_dice0.7608.pth
+2026-03-19 12:45:14 - [Best Dice Updated] epoch=7, val_dice=0.7626, val_loss=0.3701, saved to /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_dice_epoch7_dice0.7626.pth
+2026-03-19 12:45:14 - [Early Stopping] val_dice improved, counter reset to 0/30
+2026-03-19 12:45:15 - train: epoch 8, iter:0, loss: 0.4006, lr: 0.0009528893909706795
+2026-03-19 12:45:36 - train: epoch 8, iter:200, loss: 0.3628, lr: 0.0009528893909706795
+2026-03-19 12:45:57 - train: epoch 8, iter:400, loss: 0.3686, lr: 0.0009528893909706795
+2026-03-19 12:46:18 - train: epoch 8, iter:600, loss: 0.3697, lr: 0.0009528893909706795
+2026-03-19 12:46:29 - train: epoch 8, mean_loss: 0.3702, lr: 0.0009387718066217122
+2026-03-19 12:46:42 - val epoch: 8, loss: 0.3620, dice: 0.759292
+2026-03-19 12:46:42 - [Remove Old Best] deleted: /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_loss_epoch7_loss0.3701.pth
+2026-03-19 12:46:42 - [Best Loss Updated] epoch=8, val_loss=0.3620, val_dice=0.7593, saved to /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_loss_epoch8_loss0.3620.pth
+2026-03-19 12:46:42 - [Early Stopping] no improvement in val_dice for 1/30 epochs (current: 0.7593, best: 0.7626)
+2026-03-19 12:46:43 - train: epoch 9, iter:0, loss: 0.3569, lr: 0.0009387718066217122
+2026-03-19 12:47:04 - train: epoch 9, iter:200, loss: 0.3630, lr: 0.0009387718066217122
+2026-03-19 12:47:25 - train: epoch 9, iter:400, loss: 0.3608, lr: 0.0009387718066217122
+2026-03-19 12:47:47 - train: epoch 9, iter:600, loss: 0.3612, lr: 0.0009387718066217122
+2026-03-19 12:47:57 - train: epoch 9, mean_loss: 0.3615, lr: 0.0009229423231234972
+2026-03-19 12:48:11 - val epoch: 9, loss: 0.3642, dice: 0.776066
+2026-03-19 12:48:11 - [Remove Old Best] deleted: /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_dice_epoch7_dice0.7626.pth
+2026-03-19 12:48:11 - [Best Dice Updated] epoch=9, val_dice=0.7761, val_loss=0.3642, saved to /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_dice_epoch9_dice0.7761.pth
+2026-03-19 12:48:11 - [Early Stopping] val_dice improved, counter reset to 0/30
+2026-03-19 12:48:12 - train: epoch 10, iter:0, loss: 0.3454, lr: 0.0009229423231234972
+2026-03-19 12:48:33 - train: epoch 10, iter:200, loss: 0.3497, lr: 0.0009229423231234972
+2026-03-19 12:48:54 - train: epoch 10, iter:400, loss: 0.3523, lr: 0.0009229423231234972
+2026-03-19 12:49:16 - train: epoch 10, iter:600, loss: 0.3532, lr: 0.0009229423231234972
+2026-03-19 12:49:26 - train: epoch 10, mean_loss: 0.3543, lr: 0.0009054634122155987
+2026-03-19 12:49:39 - val epoch: 10, loss: 0.3693, miou: 0.607366, dice: 0.755728, accuracy: 0.979418, precision: 0.856428, recall: 0.676217, confusion_matrix: [[111035756    625433]
+ [  1786367   3730812]]
+2026-03-19 12:49:39 - [Early Stopping] no improvement in val_dice for 1/30 epochs (current: 0.7557, best: 0.7761)
+2026-03-19 12:49:40 - train: epoch 11, iter:0, loss: 0.3344, lr: 0.0009054634122155987
+2026-03-19 12:50:01 - train: epoch 11, iter:200, loss: 0.3568, lr: 0.0009054634122155987
+2026-03-19 12:50:23 - train: epoch 11, iter:400, loss: 0.3583, lr: 0.0009054634122155987
+2026-03-19 12:50:44 - train: epoch 11, iter:600, loss: 0.3607, lr: 0.0009054634122155987
+2026-03-19 12:50:55 - train: epoch 11, mean_loss: 0.3603, lr: 0.0008864040551740153
+2026-03-19 12:51:08 - val epoch: 11, loss: 0.3655, dice: 0.757285
+2026-03-19 12:51:08 - [Early Stopping] no improvement in val_dice for 2/30 epochs (current: 0.7573, best: 0.7761)
+2026-03-19 12:51:09 - train: epoch 12, iter:0, loss: 0.2639, lr: 0.0008864040551740153
+2026-03-19 12:51:30 - train: epoch 12, iter:200, loss: 0.3455, lr: 0.0008864040551740153
+2026-03-19 12:51:51 - train: epoch 12, iter:400, loss: 0.3498, lr: 0.0008864040551740153
+2026-03-19 12:52:12 - train: epoch 12, iter:600, loss: 0.3496, lr: 0.0008864040551740153
+2026-03-19 12:52:23 - train: epoch 12, mean_loss: 0.3490, lr: 0.0008658394705735984
+2026-03-19 12:52:36 - val epoch: 12, loss: 0.3612, dice: 0.770619
+2026-03-19 12:52:36 - [Remove Old Best] deleted: /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_loss_epoch8_loss0.3620.pth
+2026-03-19 12:52:36 - [Best Loss Updated] epoch=12, val_loss=0.3612, val_dice=0.7706, saved to /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_loss_epoch12_loss0.3612.pth
+2026-03-19 12:52:36 - [Early Stopping] no improvement in val_dice for 3/30 epochs (current: 0.7706, best: 0.7761)
+2026-03-19 12:52:37 - train: epoch 13, iter:0, loss: 0.2492, lr: 0.0008658394705735984
+2026-03-19 12:52:58 - train: epoch 13, iter:200, loss: 0.3560, lr: 0.0008658394705735984
+2026-03-19 12:53:20 - train: epoch 13, iter:400, loss: 0.3504, lr: 0.0008658394705735984
+2026-03-19 12:53:41 - train: epoch 13, iter:600, loss: 0.3556, lr: 0.0008658394705735984
+2026-03-19 12:53:51 - train: epoch 13, mean_loss: 0.3524, lr: 0.0008438508174347006
+2026-03-19 12:54:05 - val epoch: 13, loss: 0.3620, dice: 0.766141
+2026-03-19 12:54:05 - [Early Stopping] no improvement in val_dice for 4/30 epochs (current: 0.7661, best: 0.7761)
+2026-03-19 12:54:05 - train: epoch 14, iter:0, loss: 0.3516, lr: 0.0008438508174347006
+2026-03-19 12:54:27 - train: epoch 14, iter:200, loss: 0.3395, lr: 0.0008438508174347006
+2026-03-19 12:54:48 - train: epoch 14, iter:400, loss: 0.3460, lr: 0.0008438508174347006
+2026-03-19 12:55:09 - train: epoch 14, iter:600, loss: 0.3446, lr: 0.0008438508174347006
+2026-03-19 12:55:20 - train: epoch 14, mean_loss: 0.3427, lr: 0.000820524874925601
+2026-03-19 12:55:33 - val epoch: 14, loss: 0.3618, dice: 0.765387
+2026-03-19 12:55:33 - [Early Stopping] no improvement in val_dice for 5/30 epochs (current: 0.7654, best: 0.7761)
+2026-03-19 12:55:34 - train: epoch 15, iter:0, loss: 0.4993, lr: 0.000820524874925601
+2026-03-19 12:55:55 - train: epoch 15, iter:200, loss: 0.3379, lr: 0.000820524874925601
+2026-03-19 12:56:16 - train: epoch 15, iter:400, loss: 0.3374, lr: 0.000820524874925601
+2026-03-19 12:56:38 - train: epoch 15, iter:600, loss: 0.3354, lr: 0.000820524874925601
+2026-03-19 12:56:48 - train: epoch 15, mean_loss: 0.3370, lr: 0.000795953699884774
+2026-03-19 12:57:01 - val epoch: 15, loss: 0.3616, dice: 0.758377
+2026-03-19 12:57:01 - [Early Stopping] no improvement in val_dice for 6/30 epochs (current: 0.7584, best: 0.7761)
+2026-03-19 12:57:02 - train: epoch 16, iter:0, loss: 0.3894, lr: 0.000795953699884774
+2026-03-19 12:57:23 - train: epoch 16, iter:200, loss: 0.3300, lr: 0.000795953699884774
+2026-03-19 12:57:45 - train: epoch 16, iter:400, loss: 0.3342, lr: 0.000795953699884774
+2026-03-19 12:58:06 - train: epoch 16, iter:600, loss: 0.3301, lr: 0.000795953699884774
+2026-03-19 12:58:16 - train: epoch 16, mean_loss: 0.3310, lr: 0.000770234263514603
+2026-03-19 12:58:29 - val epoch: 16, loss: 0.3575, dice: 0.771770
+2026-03-19 12:58:30 - [Remove Old Best] deleted: /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_loss_epoch12_loss0.3612.pth
+2026-03-19 12:58:30 - [Best Loss Updated] epoch=16, val_loss=0.3575, val_dice=0.7718, saved to /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_loss_epoch16_loss0.3575.pth
+2026-03-19 12:58:30 - [Early Stopping] no improvement in val_dice for 7/30 epochs (current: 0.7718, best: 0.7761)
+2026-03-19 12:58:30 - train: epoch 17, iter:0, loss: 0.3555, lr: 0.000770234263514603
+2026-03-19 12:58:52 - train: epoch 17, iter:200, loss: 0.3236, lr: 0.000770234263514603
+2026-03-19 12:59:13 - train: epoch 17, iter:400, loss: 0.3221, lr: 0.000770234263514603
+2026-03-19 12:59:34 - train: epoch 17, iter:600, loss: 0.3221, lr: 0.000770234263514603
+2026-03-19 12:59:45 - train: epoch 17, mean_loss: 0.3227, lr: 0.0007434680686803488
+2026-03-19 12:59:58 - val epoch: 17, loss: 0.3576, dice: 0.771405
+2026-03-19 12:59:58 - [Early Stopping] no improvement in val_dice for 8/30 epochs (current: 0.7714, best: 0.7761)
+2026-03-19 12:59:59 - train: epoch 18, iter:0, loss: 0.3055, lr: 0.0007434680686803488
+2026-03-19 13:00:20 - train: epoch 18, iter:200, loss: 0.3179, lr: 0.0007434680686803488
+2026-03-19 13:00:41 - train: epoch 18, iter:400, loss: 0.3212, lr: 0.0007434680686803488
+2026-03-19 13:01:02 - train: epoch 18, iter:600, loss: 0.3221, lr: 0.0007434680686803488
+2026-03-19 13:01:13 - train: epoch 18, mean_loss: 0.3241, lr: 0.0007157607493247108
+2026-03-19 13:01:26 - val epoch: 18, loss: 0.3606, dice: 0.783445
+2026-03-19 13:01:26 - [Remove Old Best] deleted: /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_dice_epoch9_dice0.7761.pth
+2026-03-19 13:01:26 - [Best Dice Updated] epoch=18, val_dice=0.7834, val_loss=0.3606, saved to /autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_dice_epoch18_dice0.7834.pth
+2026-03-19 13:01:26 - [Early Stopping] val_dice improved, counter reset to 0/30
+2026-03-19 13:01:27 - train: epoch 19, iter:0, loss: 0.2758, lr: 0.0007157607493247108
+2026-03-19 13:01:48 - train: epoch 19, iter:200, loss: 0.3207, lr: 0.0007157607493247108
+2026-03-19 13:02:09 - train: epoch 19, iter:400, loss: 0.3233, lr: 0.0007157607493247108
+2026-03-19 13:02:31 - train: epoch 19, iter:600, loss: 0.3200, lr: 0.0007157607493247108
+2026-03-19 13:02:41 - train: epoch 19, mean_loss: 0.3203, lr: 0.0006872216535789154
+2026-03-19 13:02:54 - val epoch: 19, loss: 0.3598, dice: 0.752987
+2026-03-19 13:02:54 - [Early Stopping] no improvement in val_dice for 1/30 epochs (current: 0.7530, best: 0.7834)
+2026-03-19 13:02:55 - train: epoch 20, iter:0, loss: 0.2277, lr: 0.0006872216535789154
+2026-03-19 13:03:16 - train: epoch 20, iter:200, loss: 0.3115, lr: 0.0006872216535789154
+2026-03-19 13:03:37 - train: epoch 20, iter:400, loss: 0.3145, lr: 0.0006872216535789154
+2026-03-19 13:03:59 - train: epoch 20, iter:600, loss: 0.3153, lr: 0.0006872216535789154
+2026-03-19 13:04:09 - train: epoch 20, mean_loss: 0.3171, lr: 0.0006579634122155987
+2026-03-19 13:04:22 - val epoch: 20, loss: 0.3625, miou: 0.625604, dice: 0.769688, accuracy: 0.979788, precision: 0.830320, recall: 0.717309, confusion_matrix: [[110852449    808740]
+ [  1559659   3957520]]
+2026-03-19 13:04:22 - [Early Stopping] no improvement in val_dice for 2/30 epochs (current: 0.7697, best: 0.7834)
+2026-03-19 13:04:23 - train: epoch 21, iter:0, loss: 0.3323, lr: 0.0006579634122155987
+2026-03-19 13:04:45 - train: epoch 21, iter:200, loss: 0.3093, lr: 0.0006579634122155987
+2026-03-19 13:05:06 - train: epoch 21, iter:400, loss: 0.3091, lr: 0.0006579634122155987
+2026-03-19 13:05:27 - train: epoch 21, iter:600, loss: 0.3082, lr: 0.0006579634122155987
+2026-03-19 13:05:38 - train: epoch 21, mean_loss: 0.3074, lr: 0.0006281014941466028
+2026-03-19 13:05:51 - val epoch: 21, loss: 0.3667, dice: 0.758858
+2026-03-19 13:05:51 - [Early Stopping] no improvement in val_dice for 3/30 epochs (current: 0.7589, best: 0.7834)
+2026-03-19 13:05:51 - train: epoch 22, iter:0, loss: 0.2367, lr: 0.0006281014941466028
+2026-03-19 13:06:13 - train: epoch 22, iter:200, loss: 0.3008, lr: 0.0006281014941466028
+2026-03-19 13:06:34 - train: epoch 22, iter:400, loss: 0.3036, lr: 0.0006281014941466028
+2026-03-19 13:06:55 - train: epoch 22, iter:600, loss: 0.3031, lr: 0.0006281014941466028
+2026-03-19 13:07:06 - train: epoch 22, mean_loss: 0.3032, lr: 0.0005977537507199335
+2026-03-19 13:07:19 - val epoch: 22, loss: 0.3659, dice: 0.772163
+2026-03-19 13:07:19 - [Early Stopping] no improvement in val_dice for 4/30 epochs (current: 0.7722, best: 0.7834)
+2026-03-19 13:07:20 - train: epoch 23, iter:0, loss: 0.3226, lr: 0.0005977537507199335
+2026-03-19 13:07:41 - train: epoch 23, iter:200, loss: 0.2974, lr: 0.0005977537507199335
+2026-03-19 13:08:02 - train: epoch 23, iter:400, loss: 0.2963, lr: 0.0005977537507199335
+2026-03-19 13:08:23 - train: epoch 23, iter:600, loss: 0.3018, lr: 0.0005977537507199335
+2026-03-19 13:08:34 - train: epoch 23, mean_loss: 0.3039, lr: 0.0005670399506143305
+2026-03-19 13:08:47 - val epoch: 23, loss: 0.3601, dice: 0.764103
+2026-03-19 13:08:47 - [Early Stopping] no improvement in val_dice for 5/30 epochs (current: 0.7641, best: 0.7834)
+2026-03-19 13:08:48 - train: epoch 24, iter:0, loss: 0.3077, lr: 0.0005670399506143305
+2026-03-19 13:09:09 - train: epoch 24, iter:200, loss: 0.2963, lr: 0.0005670399506143305
+2026-03-19 13:09:30 - train: epoch 24, iter:400, loss: 0.2945, lr: 0.0005670399506143305
+2026-03-19 13:09:52 - train: epoch 24, iter:600, loss: 0.2991, lr: 0.0005670399506143305
+2026-03-19 13:10:02 - train: epoch 24, mean_loss: 0.3006, lr: 0.0005360813071670099
+2026-03-19 13:10:16 - val epoch: 24, loss: 0.3665, dice: 0.762947
+2026-03-19 13:10:16 - [Early Stopping] no improvement in val_dice for 6/30 epochs (current: 0.7629, best: 0.7834)
+2026-03-19 13:10:17 - train: epoch 25, iter:0, loss: 0.3144, lr: 0.0005360813071670099
+2026-03-19 13:10:38 - train: epoch 25, iter:200, loss: 0.2952, lr: 0.0005360813071670099
+2026-03-19 13:10:59 - train: epoch 25, iter:400, loss: 0.2884, lr: 0.0005360813071670099
+2026-03-19 13:11:20 - train: epoch 25, iter:600, loss: 0.2907, lr: 0.0005360813071670099
+2026-03-19 13:11:31 - train: epoch 25, mean_loss: 0.2915, lr: 0.0005049999999999998
+2026-03-19 13:11:44 - val epoch: 25, loss: 0.3720, dice: 0.762916
+2026-03-19 13:11:44 - [Early Stopping] no improvement in val_dice for 7/30 epochs (current: 0.7629, best: 0.7834)
+2026-03-19 13:11:45 - train: epoch 26, iter:0, loss: 0.2760, lr: 0.0005049999999999998
+2026-03-19 13:12:06 - train: epoch 26, iter:200, loss: 0.2956, lr: 0.0005049999999999998
+2026-03-19 13:12:27 - train: epoch 26, iter:400, loss: 0.2891, lr: 0.0005049999999999998
+2026-03-19 13:12:49 - train: epoch 26, iter:600, loss: 0.2905, lr: 0.0005049999999999998
+2026-03-19 13:12:59 - train: epoch 26, mean_loss: 0.2902, lr: 0.0004739186928329897
+2026-03-19 13:13:12 - val epoch: 26, loss: 0.3640, dice: 0.765020
+2026-03-19 13:13:13 - [Early Stopping] no improvement in val_dice for 8/30 epochs (current: 0.7650, best: 0.7834)
+2026-03-19 13:13:13 - train: epoch 27, iter:0, loss: 0.2282, lr: 0.0004739186928329897
+2026-03-19 13:13:35 - train: epoch 27, iter:200, loss: 0.2756, lr: 0.0004739186928329897
+2026-03-19 13:13:56 - train: epoch 27, iter:400, loss: 0.2818, lr: 0.0004739186928329897
+2026-03-19 13:14:17 - train: epoch 27, iter:600, loss: 0.2840, lr: 0.0004739186928329897
+2026-03-19 13:14:28 - train: epoch 27, mean_loss: 0.2840, lr: 0.0004429600493856692
+2026-03-19 13:14:41 - val epoch: 27, loss: 0.3748, dice: 0.751549
+2026-03-19 13:14:41 - [Early Stopping] no improvement in val_dice for 9/30 epochs (current: 0.7515, best: 0.7834)
+2026-03-19 13:14:42 - train: epoch 28, iter:0, loss: 0.3688, lr: 0.0004429600493856692
+2026-03-19 13:15:03 - train: epoch 28, iter:200, loss: 0.2713, lr: 0.0004429600493856692
+2026-03-19 13:15:24 - train: epoch 28, iter:400, loss: 0.2740, lr: 0.0004429600493856692
+2026-03-19 13:15:46 - train: epoch 28, iter:600, loss: 0.2779, lr: 0.0004429600493856692
+2026-03-19 13:15:56 - train: epoch 28, mean_loss: 0.2784, lr: 0.0004122462492800661
+2026-03-19 13:16:09 - val epoch: 28, loss: 0.3622, dice: 0.762022
+2026-03-19 13:16:10 - [Early Stopping] no improvement in val_dice for 10/30 epochs (current: 0.7620, best: 0.7834)
+2026-03-19 13:16:10 - train: epoch 29, iter:0, loss: 0.2587, lr: 0.0004122462492800661
+2026-03-19 13:16:32 - train: epoch 29, iter:200, loss: 0.2715, lr: 0.0004122462492800661
+2026-03-19 13:16:53 - train: epoch 29, iter:400, loss: 0.2732, lr: 0.0004122462492800661
+2026-03-19 13:17:14 - train: epoch 29, iter:600, loss: 0.2761, lr: 0.0004122462492800661
+2026-03-19 13:17:25 - train: epoch 29, mean_loss: 0.2756, lr: 0.0003818985058533967
+2026-03-19 13:17:38 - val epoch: 29, loss: 0.3697, dice: 0.761076
+2026-03-19 13:17:38 - [Early Stopping] no improvement in val_dice for 11/30 epochs (current: 0.7611, best: 0.7834)
+2026-03-19 13:17:39 - train: epoch 30, iter:0, loss: 0.2327, lr: 0.0003818985058533967
+2026-03-19 13:18:00 - train: epoch 30, iter:200, loss: 0.2685, lr: 0.0003818985058533967
+2026-03-19 13:18:21 - train: epoch 30, iter:400, loss: 0.2708, lr: 0.0003818985058533967
+2026-03-19 13:18:43 - train: epoch 30, iter:600, loss: 0.2689, lr: 0.0003818985058533967
+2026-03-19 13:18:53 - train: epoch 30, mean_loss: 0.2702, lr: 0.00035203658778440103
+2026-03-19 13:19:06 - val epoch: 30, loss: 0.3727, miou: 0.614140, dice: 0.760950, accuracy: 0.979480, precision: 0.842708, recall: 0.693653, confusion_matrix: [[110946877    714312]
+ [  1690170   3827009]]
+2026-03-19 13:19:06 - [Early Stopping] no improvement in val_dice for 12/30 epochs (current: 0.7610, best: 0.7834)
+2026-03-19 13:19:07 - train: epoch 31, iter:0, loss: 0.2042, lr: 0.00035203658778440103
+2026-03-19 13:19:28 - train: epoch 31, iter:200, loss: 0.2625, lr: 0.00035203658778440103
+2026-03-19 13:19:49 - train: epoch 31, iter:400, loss: 0.2651, lr: 0.00035203658778440103
+2026-03-19 13:20:11 - train: epoch 31, iter:600, loss: 0.2671, lr: 0.00035203658778440103
+2026-03-19 13:20:21 - train: epoch 31, mean_loss: 0.2669, lr: 0.00032277834642108444
+2026-03-19 13:20:34 - val epoch: 31, loss: 0.3716, dice: 0.765582
+2026-03-19 13:20:34 - [Early Stopping] no improvement in val_dice for 13/30 epochs (current: 0.7656, best: 0.7834)
+2026-03-19 13:20:35 - train: epoch 32, iter:0, loss: 0.2059, lr: 0.00032277834642108444
+2026-03-19 13:20:57 - train: epoch 32, iter:200, loss: 0.2624, lr: 0.00032277834642108444
+2026-03-19 13:21:18 - train: epoch 32, iter:400, loss: 0.2633, lr: 0.00032277834642108444
+2026-03-19 13:21:39 - train: epoch 32, iter:600, loss: 0.2637, lr: 0.00032277834642108444
+2026-03-19 13:21:50 - train: epoch 32, mean_loss: 0.2628, lr: 0.0002942392506752889
+2026-03-19 13:22:03 - val epoch: 32, loss: 0.3719, dice: 0.761816
+2026-03-19 13:22:03 - [Early Stopping] no improvement in val_dice for 14/30 epochs (current: 0.7618, best: 0.7834)
+2026-03-19 13:22:04 - train: epoch 33, iter:0, loss: 0.2480, lr: 0.0002942392506752889
+2026-03-19 13:22:25 - train: epoch 33, iter:200, loss: 0.2574, lr: 0.0002942392506752889
+2026-03-19 13:22:46 - train: epoch 33, iter:400, loss: 0.2587, lr: 0.0002942392506752889
+2026-03-19 13:23:08 - train: epoch 33, iter:600, loss: 0.2617, lr: 0.0002942392506752889
+2026-03-19 13:23:18 - train: epoch 33, mean_loss: 0.2613, lr: 0.00026653193131965077
+2026-03-19 13:23:31 - val epoch: 33, loss: 0.3756, dice: 0.754562
+2026-03-19 13:23:31 - [Early Stopping] no improvement in val_dice for 15/30 epochs (current: 0.7546, best: 0.7834)
+2026-03-19 13:23:32 - train: epoch 34, iter:0, loss: 0.1751, lr: 0.00026653193131965077
+2026-03-19 13:23:53 - train: epoch 34, iter:200, loss: 0.2574, lr: 0.00026653193131965077
+2026-03-19 13:24:14 - train: epoch 34, iter:400, loss: 0.2564, lr: 0.00026653193131965077
+2026-03-19 13:24:36 - train: epoch 34, iter:600, loss: 0.2569, lr: 0.00026653193131965077
+2026-03-19 13:24:46 - train: epoch 34, mean_loss: 0.2567, lr: 0.00023976573648539642
+2026-03-19 13:24:59 - val epoch: 34, loss: 0.3679, dice: 0.765908
+2026-03-19 13:24:59 - [Early Stopping] no improvement in val_dice for 16/30 epochs (current: 0.7659, best: 0.7834)
+2026-03-19 13:25:00 - train: epoch 35, iter:0, loss: 0.1853, lr: 0.00023976573648539642
+2026-03-19 13:25:21 - train: epoch 35, iter:200, loss: 0.2480, lr: 0.00023976573648539642
+2026-03-19 13:25:42 - train: epoch 35, iter:400, loss: 0.2505, lr: 0.00023976573648539642
+2026-03-19 13:26:04 - train: epoch 35, iter:600, loss: 0.2522, lr: 0.00023976573648539642
+2026-03-19 13:26:14 - train: epoch 35, mean_loss: 0.2536, lr: 0.00021404630011522574
+2026-03-19 13:26:28 - val epoch: 35, loss: 0.3746, dice: 0.759831
+2026-03-19 13:26:28 - [Early Stopping] no improvement in val_dice for 17/30 epochs (current: 0.7598, best: 0.7834)
+2026-03-19 13:26:29 - train: epoch 36, iter:0, loss: 0.2867, lr: 0.00021404630011522574
+2026-03-19 13:26:50 - train: epoch 36, iter:200, loss: 0.2477, lr: 0.00021404630011522574
+2026-03-19 13:27:11 - train: epoch 36, iter:400, loss: 0.2471, lr: 0.00021404630011522574
+2026-03-19 13:27:32 - train: epoch 36, iter:600, loss: 0.2479, lr: 0.00021404630011522574
+2026-03-19 13:27:43 - train: epoch 36, mean_loss: 0.2489, lr: 0.00018947512507439847
+2026-03-19 13:27:56 - val epoch: 36, loss: 0.3739, dice: 0.761180
+2026-03-19 13:27:56 - [Early Stopping] no improvement in val_dice for 18/30 epochs (current: 0.7612, best: 0.7834)
+2026-03-19 13:27:57 - train: epoch 37, iter:0, loss: 0.2683, lr: 0.00018947512507439847
+2026-03-19 13:28:18 - train: epoch 37, iter:200, loss: 0.2406, lr: 0.00018947512507439847
+2026-03-19 13:28:39 - train: epoch 37, iter:400, loss: 0.2418, lr: 0.00018947512507439847
+2026-03-19 13:29:01 - train: epoch 37, iter:600, loss: 0.2456, lr: 0.00018947512507439847
+2026-03-19 13:29:11 - train: epoch 37, mean_loss: 0.2461, lr: 0.000166149182565299
+2026-03-19 13:29:24 - val epoch: 37, loss: 0.3772, dice: 0.764432
+2026-03-19 13:29:24 - [Early Stopping] no improvement in val_dice for 19/30 epochs (current: 0.7644, best: 0.7834)
+2026-03-19 13:29:25 - train: epoch 38, iter:0, loss: 0.1703, lr: 0.000166149182565299
+2026-03-19 13:29:46 - train: epoch 38, iter:200, loss: 0.2475, lr: 0.000166149182565299
+2026-03-19 13:30:07 - train: epoch 38, iter:400, loss: 0.2460, lr: 0.000166149182565299
+2026-03-19 13:30:29 - train: epoch 38, iter:600, loss: 0.2437, lr: 0.000166149182565299
+2026-03-19 13:30:39 - train: epoch 38, mean_loss: 0.2442, lr: 0.00014416052942640132
+2026-03-19 13:30:52 - val epoch: 38, loss: 0.3785, dice: 0.761387
+2026-03-19 13:30:52 - [Early Stopping] no improvement in val_dice for 20/30 epochs (current: 0.7614, best: 0.7834)
+2026-03-19 13:30:53 - train: epoch 39, iter:0, loss: 0.2287, lr: 0.00014416052942640132
+2026-03-19 13:31:15 - train: epoch 39, iter:200, loss: 0.2417, lr: 0.00014416052942640132
+2026-03-19 13:31:36 - train: epoch 39, iter:400, loss: 0.2435, lr: 0.00014416052942640132
+2026-03-19 13:31:57 - train: epoch 39, iter:600, loss: 0.2413, lr: 0.00014416052942640132
+2026-03-19 13:32:08 - train: epoch 39, mean_loss: 0.2421, lr: 0.00012359594482598432
+2026-03-19 13:32:21 - val epoch: 39, loss: 0.3766, dice: 0.760673
+2026-03-19 13:32:21 - [Early Stopping] no improvement in val_dice for 21/30 epochs (current: 0.7607, best: 0.7834)
+2026-03-19 13:32:21 - train: epoch 40, iter:0, loss: 0.2355, lr: 0.00012359594482598432
+2026-03-19 13:32:43 - train: epoch 40, iter:200, loss: 0.2406, lr: 0.00012359594482598432
+2026-03-19 13:33:04 - train: epoch 40, iter:400, loss: 0.2412, lr: 0.00012359594482598432
+2026-03-19 13:33:25 - train: epoch 40, iter:600, loss: 0.2383, lr: 0.00012359594482598432
+2026-03-19 13:33:36 - train: epoch 40, mean_loss: 0.2388, lr: 0.00010453658778440102
+2026-03-19 13:33:48 - val epoch: 40, loss: 0.3773, miou: 0.617206, dice: 0.763299, accuracy: 0.979358, precision: 0.829485, recall: 0.706895, confusion_matrix: [[110859463    801726]
+ [  1617113   3900066]]
+2026-03-19 13:33:48 - [Early Stopping] no improvement in val_dice for 22/30 epochs (current: 0.7633, best: 0.7834)
+2026-03-19 13:33:49 - train: epoch 41, iter:0, loss: 0.1657, lr: 0.00010453658778440102
+2026-03-19 13:34:11 - train: epoch 41, iter:200, loss: 0.2343, lr: 0.00010453658778440102
+2026-03-19 13:34:32 - train: epoch 41, iter:400, loss: 0.2366, lr: 0.00010453658778440102
+2026-03-19 13:34:53 - train: epoch 41, iter:600, loss: 0.2364, lr: 0.00010453658778440102
+2026-03-19 13:35:04 - train: epoch 41, mean_loss: 0.2367, lr: 8.70576768765026e-05
+2026-03-19 13:35:17 - val epoch: 41, loss: 0.3816, dice: 0.758780
+2026-03-19 13:35:17 - [Early Stopping] no improvement in val_dice for 23/30 epochs (current: 0.7588, best: 0.7834)
+2026-03-19 13:35:18 - train: epoch 42, iter:0, loss: 0.2130, lr: 8.70576768765026e-05
+2026-03-19 13:35:39 - train: epoch 42, iter:200, loss: 0.2345, lr: 8.70576768765026e-05
+2026-03-19 13:36:01 - train: epoch 42, iter:400, loss: 0.2344, lr: 8.70576768765026e-05
+2026-03-19 13:36:22 - train: epoch 42, iter:600, loss: 0.2347, lr: 8.70576768765026e-05
+2026-03-19 13:36:32 - train: epoch 42, mean_loss: 0.2351, lr: 7.12281933782875e-05
+2026-03-19 13:36:45 - val epoch: 42, loss: 0.3828, dice: 0.755023
+2026-03-19 13:36:45 - [Early Stopping] no improvement in val_dice for 24/30 epochs (current: 0.7550, best: 0.7834)
+2026-03-19 13:36:46 - train: epoch 43, iter:0, loss: 0.3093, lr: 7.12281933782875e-05
+2026-03-19 13:37:08 - train: epoch 43, iter:200, loss: 0.2342, lr: 7.12281933782875e-05
+2026-03-19 13:37:29 - train: epoch 43, iter:400, loss: 0.2321, lr: 7.12281933782875e-05
+2026-03-19 13:37:50 - train: epoch 43, iter:600, loss: 0.2335, lr: 7.12281933782875e-05
+2026-03-19 13:38:01 - train: epoch 43, mean_loss: 0.2334, lr: 5.71106090293204e-05
+2026-03-19 13:38:14 - val epoch: 43, loss: 0.3808, dice: 0.757184
+2026-03-19 13:38:14 - [Early Stopping] no improvement in val_dice for 25/30 epochs (current: 0.7572, best: 0.7834)
+2026-03-19 13:38:15 - train: epoch 44, iter:0, loss: 0.2172, lr: 5.71106090293204e-05
+2026-03-19 13:38:36 - train: epoch 44, iter:200, loss: 0.2339, lr: 5.71106090293204e-05
+2026-03-19 13:38:57 - train: epoch 44, iter:400, loss: 0.2300, lr: 5.71106090293204e-05
+2026-03-19 13:39:19 - train: epoch 44, iter:600, loss: 0.2315, lr: 5.71106090293204e-05
+2026-03-19 13:39:29 - train: epoch 44, mean_loss: 0.2308, lr: 4.4760639485315563e-05
+2026-03-19 13:39:42 - val epoch: 44, loss: 0.3834, dice: 0.760669
+2026-03-19 13:39:42 - [Early Stopping] no improvement in val_dice for 26/30 epochs (current: 0.7607, best: 0.7834)
+2026-03-19 13:39:43 - train: epoch 45, iter:0, loss: 0.1897, lr: 4.4760639485315563e-05
+2026-03-19 13:40:04 - train: epoch 45, iter:200, loss: 0.2343, lr: 4.4760639485315563e-05
+2026-03-19 13:40:26 - train: epoch 45, iter:400, loss: 0.2336, lr: 4.4760639485315563e-05
+2026-03-19 13:40:47 - train: epoch 45, iter:600, loss: 0.2315, lr: 4.4760639485315563e-05
+2026-03-19 13:40:57 - train: epoch 45, mean_loss: 0.2294, lr: 3.422702443389899e-05
+2026-03-19 13:41:10 - val epoch: 45, loss: 0.3857, dice: 0.758572
+2026-03-19 13:41:10 - [Early Stopping] no improvement in val_dice for 27/30 epochs (current: 0.7586, best: 0.7834)
+2026-03-19 13:41:11 - train: epoch 46, iter:0, loss: 0.1836, lr: 3.422702443389899e-05
+2026-03-19 13:41:32 - train: epoch 46, iter:200, loss: 0.2278, lr: 3.422702443389899e-05
+2026-03-19 13:41:53 - train: epoch 46, iter:400, loss: 0.2311, lr: 3.422702443389899e-05
+2026-03-19 13:42:15 - train: epoch 46, iter:600, loss: 0.2294, lr: 3.422702443389899e-05
+2026-03-19 13:42:25 - train: epoch 46, mean_loss: 0.2291, lr: 2.5551335241327665e-05
+2026-03-19 13:42:38 - val epoch: 46, loss: 0.3853, dice: 0.757602
+2026-03-19 13:42:38 - [Early Stopping] no improvement in val_dice for 28/30 epochs (current: 0.7576, best: 0.7834)
+2026-03-19 13:42:39 - train: epoch 47, iter:0, loss: 0.2306, lr: 2.5551335241327665e-05
+2026-03-19 13:43:00 - train: epoch 47, iter:200, loss: 0.2250, lr: 2.5551335241327665e-05
+2026-03-19 13:43:22 - train: epoch 47, iter:400, loss: 0.2283, lr: 2.5551335241327665e-05
+2026-03-19 13:43:43 - train: epoch 47, iter:600, loss: 0.2286, lr: 2.5551335241327665e-05
+2026-03-19 13:43:53 - train: epoch 47, mean_loss: 0.2277, lr: 1.876781088929908e-05
+2026-03-19 13:44:07 - val epoch: 47, loss: 0.3857, dice: 0.756224
+2026-03-19 13:44:07 - [Early Stopping] no improvement in val_dice for 29/30 epochs (current: 0.7562, best: 0.7834)
+2026-03-19 13:44:08 - train: epoch 48, iter:0, loss: 0.1583, lr: 1.876781088929908e-05
+2026-03-19 13:44:29 - train: epoch 48, iter:200, loss: 0.2265, lr: 1.876781088929908e-05
+2026-03-19 13:44:50 - train: epoch 48, iter:400, loss: 0.2294, lr: 1.876781088929908e-05
+2026-03-19 13:45:11 - train: epoch 48, iter:600, loss: 0.2271, lr: 1.876781088929908e-05
+2026-03-19 13:45:22 - train: epoch 48, mean_loss: 0.2269, lr: 1.3903222849333505e-05
+2026-03-19 13:45:35 - val epoch: 48, loss: 0.3857, dice: 0.759611
+2026-03-19 13:45:35 - [Early Stopping] no improvement in val_dice for 30/30 epochs (current: 0.7596, best: 0.7834)
+2026-03-19 13:45:35 - [Early Stopping Triggered] val_dice has not improved for 30 consecutive epochs. Training stopped at epoch 48. Best dice: 0.7834 at epoch 18.
+2026-03-19 13:45:35 - Best loss model: epoch=16, val_loss=0.3575, path=/autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_loss_epoch16_loss0.3575.pth
+2026-03-19 13:45:35 - Best dice model: epoch=18, val_dice=0.7834, path=/autodl-fs/data/UltraFastCrackSeg-main/results/newdata2_UltraFastCrackSeg_reversion_v4_WBceTverskyLoss_2026_03_19_12_34_55/checkpoints/best_dice_epoch18_dice0.7834.pth
+2026-03-19 13:45:35 - #----------Testing best dice model----------#
+2026-03-19 13:46:29 - test of best model, loss: 0.4141, miou: 0.606844, f1_or_dsc: 0.755324, accuracy: 0.976780, precision: 0.776120, recall: 0.735614, confusion_matrix: [[230875552   2536705]
+ [  3160611   8793916]]
+2026-03-19 13:46:29 - #----------Testing best loss model----------#
+2026-03-19 13:46:57 - test of best model, loss: 0.4158, miou: 0.588735, f1_or_dsc: 0.741137, accuracy: 0.976635, precision: 0.805219, recall: 0.686503, confusion_matrix: [[231427037   1985220]
+ [  3747704   8206823]]
