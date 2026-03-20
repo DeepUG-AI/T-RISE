@@ -1,0 +1,29 @@
+algorithm_name: TunnelAwareDDPG
+backbone: DDPG
+seed: 22
+state_shape: 6
+action_dim: 2
+action_bound: 1.7
+memory_size: 10000
+minibatch_size: 128
+gamma: 0.99
+tau: 0.001
+train_after: 200
+coordination:
+  k_form: 0.5
+  delta_x: 1.5
+  safe_dist_m: 4.5
+  lambda_form: 0.08
+environment:
+  goal_threshold: 1
+  forward_atten_min: 0.3
+  forward_atten_max: 1.0
+  forward_atten_dscale: 4.5
+  enable_sensor_noise: true
+  obs_dist_noise_std: 0.012
+  obs_angle_noise_std_deg: 0.5
+  theta_ref_noise_std_rad: 0.005235987755982988
+  dropout_prob: 0.002
+  enable_delay_model: true
+  delay_steps: 1
+  delay_comp_alpha: 0.1

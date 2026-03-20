@@ -1,0 +1,120 @@
+{
+  "SeeDocsAt": "https://github.com/microsoft/AirSim/blob/main/docs/settings.md",
+  "SettingsVersion": 1.2,
+  "ApiControlMode": true,
+  "SimMode": "Multirotor",
+  "ApiControlTimeout": 10.0,
+  "AllowAPIAlways": true,
+  "RpcLibPort": 41451,
+  "EnableSyncMode": true,
+  "WaitOnStart": true,
+  "ResetOnCollision": true,
+  "ClockSpeed": 1.0,
+  "ClockType": "SteppableClock",
+  "Vehicles": {
+    "Drone1": {
+      "VehicleType": "SimpleFlight",
+      "EnableAPI": true,
+      "EnableCollisionPassthrough": false, 
+      "EnableCollisions": true,
+      "YawMode": {         
+        "YawControlMode": "Rate", 
+        "IsRateSmoothingEnabled": true
+      },
+      "Sensors": {
+        "LidarSensor1": {
+          "SensorType": 6,
+          "Enabled": true,
+          "UpdateFrequency": 20,
+          "NumberOfChannels": 14,
+          "RotationsPerSecond": 10,
+          "Range": 4.5,
+          "PointsPerSecond": 100000,
+          "X": 0, "Y": 0, "Z": -0.8,
+          "Roll": 0, "Pitch": 0, "Yaw": 0,
+          "HorizontalFOVStart": -150,
+          "HorizontalFOVEnd": 150,
+          "VerticalFOVUpper": 40,
+          "VerticalFOVLower": -40,
+          "PointCloudFormat": "XYZ",
+          "DataFrame": "SensorLocalFrame",
+          "DrawDebugPoints": true  
+        }
+      },
+      "X": 0, "Y": 0, "Z": 0,
+      "Yaw": 0
+    },
+    "Drone2": {
+      "VehicleType": "SimpleFlight",
+      "EnableAPI": true,
+      "EnableCollisionPassthrough": false, 
+      "EnableCollisions": true,
+      "YawMode": {         
+        "YawControlMode": "Rate", 
+        "IsRateSmoothingEnabled": true
+      },
+      "Sensors": {
+        "LidarSensor2": {
+          "SensorType": 6,
+          "Enabled": true,
+          "UpdateFrequency": 20,
+          "NumberOfChannels": 14,
+          "RotationsPerSecond": 10,
+          "Range": 4.5,
+          "PointsPerSecond": 100000,
+          "X": 0, "Y": 0, "Z": -0.8,
+          "Roll": 0, "Pitch": 0, "Yaw": 0,
+          "HorizontalFOVStart": -150,
+          "HorizontalFOVEnd": 150,
+          "VerticalFOVUpper": 40,
+          "VerticalFOVLower": -40,
+          "PointCloudFormat": "XYZ",
+          "DataFrame": "SensorLocalFrame",
+          "DrawDebugPoints": true   
+        }
+      },
+      "X": 0, "Y": -12, "Z": 0,
+      "Yaw": 0
+    },
+    "Drone3": {  
+      "VehicleType": "SimpleFlight",
+      "EnableAPI": true, 
+      "EnableCollisionPassthrough": false, 
+      "EnableCollisions": true,
+      "YawMode": {         
+        "YawControlMode": "Rate", 
+        "IsRateSmoothingEnabled": true
+      }, 
+      "Sensors": {    
+        "LidarSensor3": {
+          "SensorType": 6,
+          "Enabled": true,
+          "UpdateFrequency": 20,
+          "NumberOfChannels": 14,
+          "RotationsPerSecond": 10,
+          "Range": 4.5,
+          "PointsPerSecond": 100000,
+          "X": 0, "Y": 0, "Z": -0.8,
+          "Roll": 0, "Pitch": 0, "Yaw": 0,
+          "HorizontalFOVStart": -150,
+          "HorizontalFOVEnd": 150,
+          "VerticalFOVUpper": 40,
+          "VerticalFOVLower": -40,
+          "PointCloudFormat": "XYZ",
+          "DataFrame": "SensorLocalFrame",
+          "DrawDebugPoints": true 
+        }
+      },
+      "X": 0, "Y": 12, "Z": 0,  
+      "Yaw": 0
+    }
+  },
+  "API": {
+    "Enable": true,
+    "TimeoutSeconds": 30 
+  },
+"CollisionHandling": {
+    "CollisionShape": "Box",  
+    "Response": "Freeze"     
+  }
+}
