@@ -24,11 +24,11 @@ PATH = os.path.dirname(os.path.abspath(__file__))
 BEST_ROOT = os.path.join(PATH, "best_models_after_50success_coord")
 
 if not os.path.exists(BEST_ROOT):
-    raise FileNotFoundError(f"未找到最佳模型根目录: {BEST_ROOT}")
+    raise FileNotFoundError(f"Best model root directory not found: {BEST_ROOT}")
 
 subdirs = [d for d in os.listdir(BEST_ROOT) if os.path.isdir(os.path.join(BEST_ROOT, d)) and d.isdigit()]
 if len(subdirs) == 0:
-    raise FileNotFoundError(f"在 {BEST_ROOT} 下未找到编号文件夹，例如 7/、8/ 这类目录")
+    raise FileNotFoundError(f"No numbered subfolder was found under {BEST_ROOT}, such as 7/ or 8/")
 
 latest_tag = str(max(int(d) for d in subdirs))
 DIR = os.path.join(BEST_ROOT, latest_tag)
@@ -38,9 +38,12 @@ DIR3 = os.path.join(DIR, "Drone3")
 
 TEST_EPISODES = 100
 RENDER_SLEEP = 0.0
+FINAL_RESULTS = {"success", "collision", "Timeout"}
+
 
 def result_to_print_str(info):
     return "None" if info is None else str(info)
+
 
 def update_single_drone_stats(info, success_total, collision_total, timeout_total):
     if info == "success":
@@ -50,6 +53,15 @@ def update_single_drone_stats(info, success_total, collision_total, timeout_tota
     elif info == "Timeout":
         timeout_total += 1
     return success_total, collision_total, timeout_total
+
+
+def is_finished(info):
+    return info in FINAL_RESULTS
+
+
+def zero_action(action_dim):
+    return np.zeros((action_dim,), dtype=np.float32)
+
 
 def main():
     with tf.device("/gpu:0"):
@@ -76,11 +88,11 @@ def main():
             sess.run(tf.global_variables_initializer())
 
             if not agent1.load(saver, DIR1):
-                raise FileNotFoundError(f"Drone1 模型加载失败: {DIR1}")
+                raise FileNotFoundError(f"Failed to load Drone1 model: {DIR1}")
             if not agent2.load(saver, DIR2):
-                raise FileNotFoundError(f"Drone2 模型加载失败: {DIR2}")
+                raise FileNotFoundError(f"Failed to load Drone2 model: {DIR2}")
             if not agent3.load(saver, DIR3):
-                raise FileNotFoundError(f"Drone3 模型加载失败: {DIR3}")
+                raise FileNotFoundError(f"Failed to load Drone3 model: {DIR3}")
 
             success1_total = collision1_total = timeout1_total = 0
             success2_total = collision2_total = timeout2_total = 0
@@ -127,20 +139,24 @@ def main():
                 info1 = info2 = info3 = None
 
                 while True:
-                    if info1 != "success":
+                    finished1 = is_finished(info1)
+                    finished2 = is_finished(info2)
+                    finished3 = is_finished(info3)
+
+                    if not finished1:
                         action1 = agent1.act(state1, info1, noise=False)
                     else:
-                        action1 = np.zeros((action_dim,), dtype=np.float32)
+                        action1 = zero_action(action_dim)
 
-                    if info2 != "success":
+                    if not finished2:
                         action2 = agent2.act(state2, info2, noise=False)
                     else:
-                        action2 = np.zeros((action_dim,), dtype=np.float32)
+                        action2 = zero_action(action_dim)
 
-                    if info3 != "success":
+                    if not finished3:
                         action3 = agent3.act(state3, info3, noise=False)
                     else:
-                        action3 = np.zeros((action_dim,), dtype=np.float32)
+                        action3 = zero_action(action_dim)
 
                     pos1_shared = get_shared_position(
                         env1,
@@ -170,17 +186,24 @@ def main():
                         guidance_rate=0.0
                     )
 
-                    if info1 != "success":
+                    if finished1:
+                        action1 = zero_action(action_dim)
+                    if finished2:
+                        action2 = zero_action(action_dim)
+                    if finished3:
+                        action3 = zero_action(action_dim)
+
+                    if not finished1:
                         next_base_state1, _, _, info1 = env1.step(action1)
                     else:
                         next_base_state1 = base_state1
 
-                    if info2 != "success":
+                    if not finished2:
                         next_base_state2, _, _, info2 = env2.step(action2)
                     else:
                         next_base_state2 = base_state2
 
-                    if info3 != "success":
+                    if not finished3:
                         next_base_state3, _, _, info3 = env3.step(action3)
                     else:
                         next_base_state3 = base_state3
@@ -222,11 +245,7 @@ def main():
                     if RENDER_SLEEP > 0:
                         time.sleep(RENDER_SLEEP)
 
-                    if (
-                        info1 == "collision" or info2 == "collision" or info3 == "collision"
-                        or (info1 == "success" and info2 == "success" and info3 == "success")
-                        or info1 == "Timeout" or info2 == "Timeout" or info3 == "Timeout"
-                    ):
+                    if is_finished(info1) and is_finished(info2) and is_finished(info3):
                         success1_total, collision1_total, timeout1_total = update_single_drone_stats(
                             info1, success1_total, collision1_total, timeout1_total
                         )
@@ -252,11 +271,11 @@ def main():
                         print(f"Drone2 | result={result_to_print_str(info2):>9}")
                         print(f"Drone3 | result={result_to_print_str(info3):>9}")
                         print("-" * 80)
-                        print("当前累计统计：")
-                        print(f"Drone1 | 成功总次数={success1_total} | 失败总次数={fail1_total}")
-                        print(f"Drone2 | 成功总次数={success2_total} | 失败总次数={fail2_total}")
-                        print(f"Drone3 | 成功总次数={success3_total} | 失败总次数={fail3_total}")
-                        print(f"编队   | 同时成功总次数={all_success_total} | 编队失败总次数={formation_fail_total}")
+                        print("Current cumulative statistics:")
+                        print(f"Drone1 | total successes={success1_total} | total failures={fail1_total}")
+                        print(f"Drone2 | total successes={success2_total} | total failures={fail2_total}")
+                        print(f"Drone3 | total successes={success3_total} | total failures={fail3_total}")
+                        print(f"Formation | total simultaneous successes={all_success_total} | total formation failures={formation_fail_total}")
                         break
 
             fail1_total = collision1_total + timeout1_total
@@ -264,32 +283,33 @@ def main():
             fail3_total = collision3_total + timeout3_total
 
             print("\n" + "#" * 100)
-            print("测试完成，结果汇总如下：")
-            print(f"测试回合数 TEST_EPISODES = {TEST_EPISODES}")
-            print(f"读取的最佳模型编号目录 = {latest_tag}")
+            print("Testing completed. Summary of results:")
+            print(f"Number of test episodes TEST_EPISODES = {TEST_EPISODES}")
+            print(f"Loaded best model folder ID = {latest_tag}")
             print("-" * 100)
-            print(f"Drone1 成功次数   : {success1_total}")
-            print(f"Drone1 碰撞次数   : {collision1_total}")
-            print(f"Drone1 超时次数   : {timeout1_total}")
-            print(f"Drone1 失败次数   : {fail1_total}")
-            print(f"Drone1 成功率     : {success1_total / TEST_EPISODES:.4f}")
+            print(f"Drone1 success count   : {success1_total}")
+            print(f"Drone1 collision count : {collision1_total}")
+            print(f"Drone1 timeout count   : {timeout1_total}")
+            print(f"Drone1 failure count   : {fail1_total}")
+            print(f"Drone1 success rate    : {success1_total / TEST_EPISODES:.4f}")
             print("-" * 100)
-            print(f"Drone2 成功次数   : {success2_total}")
-            print(f"Drone2 碰撞次数   : {collision2_total}")
-            print(f"Drone2 超时次数   : {timeout2_total}")
-            print(f"Drone2 失败次数   : {fail2_total}")
-            print(f"Drone2 成功率     : {success2_total / TEST_EPISODES:.4f}")
+            print(f"Drone2 success count   : {success2_total}")
+            print(f"Drone2 collision count : {collision2_total}")
+            print(f"Drone2 timeout count   : {timeout2_total}")
+            print(f"Drone2 failure count   : {fail2_total}")
+            print(f"Drone2 success rate    : {success2_total / TEST_EPISODES:.4f}")
             print("-" * 100)
-            print(f"Drone3 成功次数   : {success3_total}")
-            print(f"Drone3 碰撞次数   : {collision3_total}")
-            print(f"Drone3 超时次数   : {timeout3_total}")
-            print(f"Drone3 失败次数   : {fail3_total}")
-            print(f"Drone3 成功率     : {success3_total / TEST_EPISODES:.4f}")
+            print(f"Drone3 success count   : {success3_total}")
+            print(f"Drone3 collision count : {collision3_total}")
+            print(f"Drone3 timeout count   : {timeout3_total}")
+            print(f"Drone3 failure count   : {fail3_total}")
+            print(f"Drone3 success rate    : {success3_total / TEST_EPISODES:.4f}")
             print("-" * 100)
-            print(f"三机同时成功次数 : {all_success_total}")
-            print(f"编队失败次数     : {formation_fail_total}")
-            print(f"三机同时成功率   : {all_success_total / TEST_EPISODES:.4f}")
+            print(f"Three-drone simultaneous success count : {all_success_total}")
+            print(f"Formation failure count                : {formation_fail_total}")
+            print(f"Three-drone simultaneous success rate  : {all_success_total / TEST_EPISODES:.4f}")
             print("#" * 100)
+
 
 if __name__ == "__main__":
     main()
